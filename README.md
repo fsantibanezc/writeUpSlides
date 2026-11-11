@@ -1,4 +1,4 @@
-# writeUpSlides — Slides Free Draw
+# writeUpSlides
 
 A Chrome extension for drawing by hand on top of Google Slides: circle things, underline them, or sketch a diagram while you present or edit. It works with a mouse, a touchscreen, or a pen tablet such as a Wacom, including its side button.
 
@@ -9,12 +9,12 @@ Your ink sits on a transparent layer above the page. It never changes the presen
 The extension isn't on the Chrome Web Store, so you load it yourself in Chrome's developer mode. This takes about a minute and works in Chrome, Edge, Brave and other Chromium browsers.
 
 1. **Get the files:**
-   - **Packaged version:** download [`dist/slides-free-draw-v1.7.zip`](dist/slides-free-draw-v1.7.zip) and unzip it into a folder you'll keep, such as `Documents/SlidesFreeDraw`. Chrome loads the extension from that folder every time it starts, so don't delete it.
+   - **Packaged version:** download [`dist/writeUpSlides-v1.8.zip`](dist/writeUpSlides-v1.8.zip) and unzip it into a folder you'll keep, such as `Documents/writeUpSlides`. Chrome loads the extension from that folder every time it starts, so don't delete it.
    - **From source:** `git clone https://github.com/fsantibanezc/writeUpSlides.git`
 2. Open `chrome://extensions` in the address bar.
 3. Turn on **Developer mode** (the switch at the top right).
 4. Click **Load unpacked** and choose the folder that contains `manifest.json`.
-5. Optional: click the puzzle-piece icon in the toolbar and pin **Slides Free Draw** so its button is always visible.
+5. Optional: click the puzzle-piece icon in the toolbar and pin **writeUpSlides** so its button is always visible.
 6. **Reload any Google Slides tabs that were already open.**
 
 ### Updating
@@ -72,7 +72,7 @@ The shortcuts work while editing and while presenting. Click on the presentation
 |---|---|
 | The popup says it *couldn't reach the page*. | Reload the Slides tab. This happens after the extension is installed, updated or reloaded. |
 | The popup says *Open a Google Slides presentation*. | The extension only works on `docs.google.com/presentation/` pages. |
-| Clicks don't reach the slide even with the pen off. | Reload the tab. If it keeps happening, check `chrome://extensions` for a second copy of Slides Free Draw and remove it. |
+| Clicks don't reach the slide even with the pen off. | Reload the tab. If it keeps happening, check `chrome://extensions` for a second copy of writeUpSlides (or an older copy named "Slides Free Draw") and remove it. |
 | The shortcuts do nothing. | Click on the presentation first so the page has keyboard focus. Check that no other extension uses the same keys. |
 | A pen tablet scrolls or selects text instead of drawing. | Make sure the pen is turned on. In the tablet driver settings, turn off "Windows Ink" gestures or flicks if they're on. |
 
@@ -92,7 +92,7 @@ The extension only runs on `docs.google.com/presentation/*`. It collects no data
 | `manifest.json` | Extension manifest (Manifest V3). |
 | `content.js` | Drawing layer: canvas, strokes, eraser, shortcuts and fullscreen handling. |
 | `popup.html`, `popup.js` | Toolbar popup. |
-| `package.sh` | Builds `dist/slides-free-draw-v<version>.zip` from the files above. |
+| `package.sh` | Builds `dist/writeUpSlides-v<version>.zip` from the files above. |
 
 To make a release, bump `"version"` in `manifest.json`, run `./package.sh` and commit the new zip in `dist/`. The same zip can be uploaded to the Chrome Web Store.
 

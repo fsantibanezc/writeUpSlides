@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
-  "name": "Slides Free Draw",
-  "version": "1.7",
+  "name": "writeUpSlides",
+  "version": "1.8",
   "description": "Draw over Google Slides while presenting",
   "permissions": ["activeTab", "scripting"],
   "action": {

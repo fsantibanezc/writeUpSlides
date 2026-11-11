@@ -3,9 +3,13 @@
   // reloaded/updated (its chrome.* APIs die but its DOM listeners and canvas stay), or after the
   // popup re-injects this script. Two overlays get out of sync and the stale one keeps eating
   // clicks, so every new instance tells earlier ones (via the shared DOM) to tear down.
-  const TAKEOVER_EVENT = 'slides-free-draw:takeover';
-  const CANVAS_ATTR = 'data-slides-free-draw';
+  const TAKEOVER_EVENT = 'writeupslides:takeover';
+  const CANVAS_ATTR = 'data-writeupslides';
+  // Names used before the rename (v1.7), so an older instance still gets cleaned up.
+  const LEGACY_TAKEOVER_EVENT = 'slides-free-draw:takeover';
+  const LEGACY_CANVAS_ATTR = 'data-slides-free-draw';
   document.dispatchEvent(new CustomEvent(TAKEOVER_EVENT));
+  document.dispatchEvent(new CustomEvent(LEGACY_TAKEOVER_EVENT));
 
   const lifetime = new AbortController();
   const signal = lifetime.signal;
@@ -31,7 +35,7 @@
     }
   }
 
-  const HOTKEY_MSG = 'slides-free-draw-hotkey';
+  const HOTKEY_MSG = 'writeupslides-hotkey';
   const HOTKEYS = { KeyD: 'toggle_drawing', KeyE: 'toggle_eraser', KeyC: 'clear_canvas' };
   const HOTKEY_ACTIONS = new Set(Object.values(HOTKEYS));
 
@@ -79,7 +83,7 @@
     const fsElem = document.fullscreenElement;
     if (fsElem && fsElem.nodeType === Node.ELEMENT_NODE) {
       if (!REPLACED_ELEMENTS.has(fsElem.tagName)) return fsElem;
-      console.warn('Slides Free Draw: fullscreen element is a <' + fsElem.tagName.toLowerCase() +
+      console.warn('writeUpSlides: fullscreen element is a <' + fsElem.tagName.toLowerCase() +
         '>; the drawing overlay cannot be shown on top of it.');
     }
     return document.body || document.documentElement;
@@ -89,7 +93,7 @@
     if (canvas) return;
 
     // Remove overlays left behind by earlier instances.
-    document.querySelectorAll(`canvas[${CANVAS_ATTR}]`).forEach((old) => old.remove());
+    document.querySelectorAll(`canvas[${CANVAS_ATTR}], canvas[${LEGACY_CANVAS_ATTR}]`).forEach((old) => old.remove());
 
     canvas = document.createElement('canvas');
     canvas.setAttribute(CANVAS_ATTR, '');
