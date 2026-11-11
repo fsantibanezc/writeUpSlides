@@ -25,16 +25,26 @@ Replace the folder's contents with the new version, click the reload icon on the
 
 Open a presentation at `docs.google.com/presentation/...`. You can be editing it or presenting it.
 
-### Popup controls
+### The popup menu
 
-Click the extension's toolbar button to open the popup:
+Click the extension's button in the Chrome toolbar to open the menu. If you haven't pinned it, click the puzzle-piece icon first. Chrome shows it as a gray circle with a **w**.
 
-| Control | What it does |
-|---|---|
-| **Turn Pen ON / OFF** | Starts or stops drawing. While the pen is on, clicks draw instead of reaching the slide. Turn it off to click, select or advance slides again. |
-| **Toggle Eraser** | Switches the pen into an eraser. Picking a color switches back to the pen. |
-| **Clear Screen** | Erases all ink. |
-| **Pen Color** | Five preset colors (red, blue, green, yellow, black) plus a custom color picker. |
+<p align="center">
+  <img src="docs/popup-menu.png" alt="The writeUpSlides popup menu: Turn Pen ON, Toggle Eraser and Clear Screen buttons, a row of six pen colors, and a list of hotkeys" width="320">
+</p>
+
+From top to bottom:
+
+1. **Turn Pen ON** (blue text) starts drawing on the presentation. The button turns solid blue and changes to **Turn Pen OFF**. While the pen is on, mouse and pen clicks draw instead of reaching the slide. Turn it off to click links, select objects or advance slides again. Shortcut: `Alt/Option + D`.
+2. **Toggle Eraser** switches between the pen and the eraser. While erasing, the button turns solid blue and reads **Eraser Active**. The eraser is wider than the pen and removes only ink, never the slide's content. Picking a color switches back to the pen automatically. Shortcut: `Alt/Option + E`.
+3. **Clear Screen** (red) erases all ink at once. The label briefly changes to **Cleared!** to confirm. There's no undo. Shortcut: `Alt/Option + C`.
+4. **Pen Color** has six circles. Click one to draw in that color; the selected color has a blue ring.
+   - The first five are presets: **red** (the default), **blue**, **green**, **yellow** and **black**.
+   - The sixth circle is a **custom color picker**. Click it to choose any color from the system color chooser. It shows the last custom color you picked, which starts as red.
+5. **Hotkeys** is a reminder of the keyboard shortcuts, not a set of buttons. See [Keyboard shortcuts](#keyboard-shortcuts) below. **Wacom Side Btn: Hold to erase** means that holding a tablet pen's side button turns that stroke into an eraser.
+6. **By FS-102026** is the author credit.
+
+The menu always shows the current state of the Slides tab, so if you turned the pen on with a hotkey, the menu shows **Turn Pen OFF** when you open it. If the tab isn't a Google Slides presentation, or the extension can't reach it, a yellow note at the top of the menu explains what to do (see [Troubleshooting](#troubleshooting)).
 
 ### Keyboard shortcuts
 
