@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    body {
+      width: 210px;
+      padding: 12px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      background-color: #f8f9fa;
+      color: #202124;
+      margin: 0;
+    }
+    h3 {
+      margin: 0 0 10px 0;
+      font-size: 14px;
+      text-align: center;
+    }
+    .btn-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    button {
+      padding: 8px 10px;
+      font-size: 12px;
+      font-weight: 600;
+      border: 1px solid #dadce0;
+      border-radius: 6px;
+      background-color: #ffffff;
+      color: #1a73e8;
+      cursor: pointer;
+      transition: background-color 0.15s, color 0.15s;
+    }
+    button:hover {
+      background-color: #f1f3f4;
+    }
+    button.active {
+      background-color: #1a73e8;
+      color: #ffffff;
+      border-color: #1a73e8;
+    }
+    button.danger {
+      color: #d93025;
+      border-color: #fce8e6;
+      background-color: #fce8e6;
+    }
+    button.danger:hover {
+      background-color: #f8d7da;
+    }
+    .color-section {
+      margin-top: 10px;
+      padding-top: 8px;
+      border-top: 1px solid #dadce0;
+    }
+    .color-section label {
+      font-size: 11px;
+      font-weight: 600;
+      color: #5f6368;
+      display: block;
+      margin-bottom: 6px;
+    }
+    .color-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .color-swatch {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      border: 2px solid #fff;
+      box-shadow: 0 0 0 1px #dadce0;
+      cursor: pointer;
+      padding: 0;
+    }
+    .color-swatch.selected {
+      box-shadow: 0 0 0 2px #1a73e8;
+    }
+    input[type="color"] {
+      -webkit-appearance: none;
+      border: none;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      cursor: pointer;
+      background: none;
+      padding: 0;
+    }
+    input[type="color"]::-webkit-color-swatch-wrapper {
+      padding: 0;
+    }
+    input[type="color"]::-webkit-color-swatch {
+      border: 1px solid #dadce0;
+      border-radius: 50%;
+    }
+    .shortcuts {
+      margin-top: 10px;
+      padding-top: 8px;
+      border-top: 1px solid #dadce0;
+      font-size: 11px;
+      color: #5f6368;
+      line-height: 1.4;
+    }
+    .shortcuts div {
+      margin-bottom: 2px;
+    }
+    .status {
+      margin-top: 8px;
+      padding: 6px 8px;
+      font-size: 11px;
+      line-height: 1.3;
+      color: #b06000;
+      background-color: #fef7e0;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+<body>
+  <h3>Slides Draw</h3>
+
+  <div id="status" class="status" hidden></div>
+
+  <div class="btn-group">
+    <button id="toggleBtn">Turn Pen ON</button>
+    <button id="eraserBtn">Toggle Eraser</button>
+    <button id="clearBtn" class="danger">Clear Screen</button>
+  </div>
+
+  <div class="color-section">
+    <label>Pen Color</label>
+    <div class="color-row">
+      <button class="color-swatch selected" data-color="#FF0000" style="background-color: #FF0000;"></button>
+      <button class="color-swatch" data-color="#0066FF" style="background-color: #0066FF;"></button>
+      <button class="color-swatch" data-color="#00CC44" style="background-color: #00CC44;"></button>
+      <button class="color-swatch" data-color="#FFCC00" style="background-color: #FFCC00;"></button>
+      <button class="color-swatch" data-color="#000000" style="background-color: #000000;"></button>
+      <input type="color" id="colorPicker" value="#FF0000" title="Custom color">
+    </div>
+  </div>
+
+  <div class="shortcuts">
+    <strong>Hotkeys:</strong>
+    <div><b>Alt/Option + D</b>: Toggle Pen</div>
+    <div><b>Alt/Option + E</b>: Toggle Eraser</div>
+    <div><b>Alt/Option + C</b>: Clear Screen</div>
+    <div><b>Wacom Side Btn</b>: Hold to erase</div>	
+  </div>
+  <div><b>------------</b></div>	
+  <div><b>By FS-102026</b></div>	
+
+  <script src="popup.js"></script>
+</body>
+</html>
